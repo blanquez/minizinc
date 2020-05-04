@@ -1,15 +1,14 @@
-% Numero X de 10 digitos tal que cada posicion n represente cuantas veces aparece n en x
+% EJERCICIO 2
 include "globals.mzn";
 
 % Declaracion de variables
-
-array[0..9] of var 0..9: X;
+% Numero X
+array[0..9] of var 0..9: x;
 
 % Restricciones
-
-constraint forall(i in 0..9)(X[i] == count(X,i));
+% Valor en i igual a su numero de apariciones en X
+constraint forall(i in 0..9)(x[i] == count(x,i));
 
 % Solucion
 solve satisfy;
-output ["X = "];
-output ["\(X[i])" | i in 0..9];
+output ["X = " ++ show(x)];

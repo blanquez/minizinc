@@ -1,27 +1,18 @@
-% Encontrar una asignacion de profesores que satisfaga:
-%  - Una unica aula entre 9:00 y 15:00
-%  - Solo puede estar ocupada por un unico profesor al mismo tiempo
-%  - Cada profesor debe impartir una hora de clase
-%  - Profesor 1: 11:00 - 15:00
-%  - Profesor 2: 11:00 - 13:00
-%  - Profesor 3: 10:00 - 14:00
-%  - Profesor 4: 10:00 - 13:00
-%  - Profesor 5: 11:00 - 13:00
-%  - Profesor 6: 09:00 - 15:00
+% EJERCICIO 3
 include "globals.mzn";
 
 % Declaracion de varibles
-
-var 11..15: p1;
-var 11..13: p2;
-var 10..14: p3;
-var 10..13: p4;
-var 11..13: p5;
-var 9..15: p6;
+% Profesores(restricciones a,c y d implicitas)
+var 11..14: p1;
+var 11..12: p2;
+var 10..13: p3;
+var 10..11: p4;
+var 11..12: p5;
+var 9..14: p6;
 
 % Restricciones
-
-constraint alldifferent([p1,p2,p3,p4,p5,p6]);
+% Condicion b
+constraint all_different([p1,p2,p3,p4,p5,p6]);
 
 % Solucion
 solve satisfy;
